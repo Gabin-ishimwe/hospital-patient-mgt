@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-
-
-
     @PostMapping(path = "/sign-up")
     public ResponseEntity<AuthResponseDto> userSignUp(@RequestBody @Valid SignupDto signupDto, HttpServletRequest request) throws UserExistsException, UserExistsException {
         AuthResponseDto responseDto =  userService.userSignUp(signupDto);
@@ -32,8 +29,6 @@ public class UserController {
     public ResponseEntity<AuthResponseDto> userLogin(@RequestBody @Valid SignInDto signInDto) throws UserAuthException {
         return ResponseEntity.ok(userService.userSignIn(signInDto));
     }
-
-
 
     // TODO: admin endpoint
     @GetMapping()
